@@ -1,18 +1,34 @@
-const ProjectTopic = require('../Models/topicModel')
-// const Student =require('../Models/studentModel')
+const projecttopic = require('../Models/topicModel')
+ const Student =require('../Models/studentModel')
 
 //get all project topics for a specific batch
 
 const  getTopics =  async (req, res) => {
-  // const projectId = req.params.id;
-  const batch = req.params.batch();
+
+  const batch = req.body.batch;
     try {
-      const projectTopics = await ProjectTopic.find({ batch:batch })
-      res.status(200).json(projectTopics)
+      const projectTopics = await projecttopic.find({batch:batch})
+      console.log(projectTopics)
+      res.status(200).json({projects:projectTopics})
     } catch (error) {
       res.status(500).json({ error: 'Error fetching topics' })
     }
   }
+
+ const  studentDetail= async (req,res) =>{
+
+  const  name = req.body.name;
+  try{
+    const studentdetail= await Student.find({name:name})
+    res.status(200).json({detail:studentdetail})
+  } catch (error)
+{
+  res.status(500).json({ error: 'Error fetching details' })
+}  
+
+ }
+
+
 
 
   //select a project topic here need to change studentId=req.student.id;
@@ -43,4 +59,4 @@ const  getTopics =  async (req, res) => {
   }
 
 
- module.exports = {getTopics,postTopics,selectTopics}
+ module.exports = {getTopics,selectTopics,studentDetail}

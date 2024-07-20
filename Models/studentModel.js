@@ -14,9 +14,12 @@ const StudentSchema = new Schema({
     type: String,
     // enum: ['fullstack', 'machinelearning', 'cybersecurity', 'devops'],
     required: true
+  },
+  selectedTopic: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'ProjectTopic',
+    default: null,
   }
- 
-
 
 })
 const Student = mongoose.model('Student', StudentSchema)

@@ -12,16 +12,17 @@ const ProjectTopicSchema = new Schema({
   },
   batch: {
     type: String,
-    // enum: ['fullstack', 'machinelearning', 'cybersecurity', 'devops'],
+    //  enum: ['fullstack', 'machinelearning', 'cybersecurity', 'devops'],
     required: true
-  },
-  selectedBy: {
-    type: Schema.Types.ObjectId,
-    ref: 'Student',
-    default: null
   }
+  // selectedBy: {
+  //   type: Schema.Types.ObjectId,
+  //   ref: 'Student',
+  //   default: null
+  // }
 
 })
 
 
-module.exports = mongoose.model('ProjectTopic', ProjectTopicSchema);
+ const projecttopic= mongoose.model('ProjectTopic', ProjectTopicSchema);
+ module.exports = projecttopic

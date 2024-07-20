@@ -1,10 +1,10 @@
 const express = require('express')
-const { getTopics, selectTopics } = require('../Controllers/studentdashController')
+const { getTopics, selectTopics,studentDetail } = require('../Controllers/studentdashController')
 const studentdashRouter = express.Router()
 //require auth middleware like const auth=require('../middleware/auth')  auth.js lu Student model require cheyyanam
 ///:batch,auth,getTopics
-studentdashRouter.get('/:batch',getTopics)
-
+studentdashRouter.get('/getproject',getTopics)
+studentdashRouter.get('/getstudentdetail/',studentDetail)
 
 ///select/:id ,auth,selectTopics
 studentdashRouter.put('/:id/select',selectTopics)
