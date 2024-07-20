@@ -15,21 +15,6 @@ const  getTopics =  async (req, res) => {
     }
   }
 
- const  studentDetail= async (req,res) =>{
-
-  const  name = req.body.name;
-  try{
-    const studentdetail= await Student.find({name:name})
-    res.status(200).json({detail:studentdetail})
-  } catch (error)
-{
-  res.status(500).json({ error: 'Error fetching details' })
-}  
-
- }
-
-
-
 
   //select a project topic here need to change studentId=req.student.id;
 
@@ -59,4 +44,4 @@ const  getTopics =  async (req, res) => {
   }
 
 
- module.exports = {getTopics,selectTopics,studentDetail}
+ module.exports = {getTopics,selectTopics}
